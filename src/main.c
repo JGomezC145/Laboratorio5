@@ -22,7 +22,7 @@ int main() {
     // Obtener e imprimir un elemento por índice
     int index = 2;
     int value = get_element(arr, index);
-    printf("Elemento en la posición %d: %d\n", index, value);
+    printf("Elemento en la posicion %d: %d\n", index, value);
 
     // Liberar memoria
     free_array(arr);
