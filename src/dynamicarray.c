@@ -17,15 +17,19 @@ DynamicArray* create_array(int initial_capacity) {
     return arr;
 }
 
-void add_element(DynamicArray *arr, int value) {
+int add_element(DynamicArray *arr, int value) {
     if (arr->size == arr->capacity) {
         arr->capacity *= 2;
         int *temp = realloc(arr->data, arr->capacity * sizeof(int));
-        if (temp == NULL) return;
+        if (temp == NULL) {
+            fprintf(stderr, "Error: Memory allocation failed while resizing the array.\n");
+            return -1; // Signal failure
+        }
         arr->data = temp;
     }
 
     arr->data[arr->size++] = value;
+    return 0; // Signal success
 }
 
 int get_element(DynamicArray *arr, int index) {
