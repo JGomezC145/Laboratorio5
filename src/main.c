@@ -1,43 +1,31 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include "../include/dynamicarray.h"
 
 int main() {
-    int *array = NULL;    // Puntero al arreglo dinámico
-    int size = 0;         // Cantidad de elementos actualmente
-    int capacity = 2;     // Capacidad inicial
-
-    // Reservar memoria inicial
-    array = malloc(capacity * sizeof(int));
-    if (array == NULL) {
-        fprintf(stderr, "Error al asignar memoria\n");
+    // Crear un arreglo dinámico con capacidad inicial de 2
+    DynamicArray *arr = create_array(2);
+    if (arr == NULL) {
+        fprintf(stderr, "Error al crear el arreglo dinámico\n");
         return 1;
     }
 
-    // Función para agregar elementos al arreglo
-    for (int i = 0; i < 5; i++) {
-        if (size == capacity) {
-            // Redimensionar el arreglo (doblar capacidad)
-            capacity *= 2;
-            int *temp = realloc(array, capacity * sizeof(int));
-            if (temp == NULL) {
-                fprintf(stderr, "Error al redimensionar el arreglo\n");
-                free(array);
-                return 1;
-            }
-            array = temp;
-        }
-        array[size] = i * 10;
-        size++;
-    }
+    // Agregar algunos elementos
+    add_element(arr, 10);
+    add_element(arr, 20);
+    add_element(arr, 30);
+    add_element(arr, 40);
 
-    // Imprimir el contenido del arreglo
-    printf("Contenido del arreglo:\n");
-    for (int i = 0; i < size; i++) {
-        printf("%d ", array[i]);
-    }
-    printf("\n");
+    // Imprimir el arreglo
+    printf("Contenido del arreglo: ");
+    print_array(arr);
+
+    // Obtener e imprimir un elemento por índice
+    int index = 2;
+    int value = get_element(arr, index);
+    printf("Elemento en la posición %d: %d\n", index, value);
 
     // Liberar memoria
-    free(array);
+    free_array(arr);
+
     return 0;
 }

@@ -1,0 +1,29 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos.
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Depurar programa",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/main.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb.exe", // O la ruta completa a gdb si no está en el PATH
+            "setupCommands": [
+                {
+                    "description": "Habilitar impresión de pretty-printing para gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+
+    ]
+}

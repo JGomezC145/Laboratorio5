@@ -7,6 +7,9 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
+                "-I",
+                "${workspaceFolder}/include",
+                "${fileDirname}/dynamicarray.c",
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
