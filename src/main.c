@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "dynamicarray.h"
+#include "../include/dynamicarray.h"
 
 int main() {
     // Crear un arreglo dinámico con capacidad inicial de 2
